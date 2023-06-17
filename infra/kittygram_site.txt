@@ -1,0 +1,5 @@
+IP: 130.193.34.124;
+name_taski: https://taskinaprimerrr.ddns.net ;
+name_kittygram: https://naprimerrrkittygram.ddns.net;
+login: prizovoleg;
+password: 8oenfOZ59; 
