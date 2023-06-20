@@ -1,6 +1,8 @@
 server {
     server_name 130.193.34.124 taskinaprimerrr.ddns.net;
 
+    server_tokens off;
+
     location /api/ {
         proxy_pass http://127.0.0.1:8000;
     }
@@ -27,6 +29,10 @@ server {
 server {
     server_name naprimerrrkittygram.ddns.net;
 
+    client_max_body_size 20M;
+
+    server_tokens off;
+
     location /api/ {
         proxy_pass http://127.0.0.1:8080;
     }
@@ -36,7 +42,7 @@ server {
     }
 
     location /media/ {
-        alias /var/www/kittygram/meedia/;
+        alias /var/www/kittygram/media/;
     }
 
     location / {
@@ -59,24 +65,14 @@ server {
     if ($host = naprimerrrkittygram.ddns.net) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
-
-
-
-    listen 80;
-    server_name naprimerrrkittygram.ddns.net;
-    return 404; # managed by Certbot
-
-
-}server {
     if ($host = taskinaprimerrr.ddns.net) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
 
-
-
+    
     listen 80;
-    server_name 130.193.34.124 taskinaprimerrr.ddns.net;
-    return 404; # managed by Certbot
+    server_name naprimerrrkittygram.ddns.net taskinaprimerrr.ddns.net;
+    return 404;
 
 
 }
